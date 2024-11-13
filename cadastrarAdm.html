@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Administrador</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link href="./auth.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Ícone -->
+        <div class="icon-container">
+            <i class='bx bxs-landscape'></i>
+        </div>
+        
+        <!-- Título -->
+        <h2>Cadastrar (Ademir)</h2>
+        
+        <!-- Form -->
+        <form>
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-transparent border-0">
+                    <i class='bx bx-id-card' style="color: white;"></i>
+                </span>
+                <input type="number" class="form-control" placeholder="CPF" required>
+            </div>
+
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-transparent border-0">
+                    <i class='bx bx-user' style="color: white;"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Nome Completo" required>
+            </div>
+            
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-transparent border-0">
+                    <i class='bx bx-envelope' style="color: white;"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Email" required>
+            </div>
+            
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-transparent border-0">
+                    <i class='bx bx-lock' style="color: white;"></i>
+                </span>
+                <input type="password" class="form-control" placeholder="Senha" required>
+            </div>
+
+            <div class="mb-3 input-group">
+                <span class="input-group-text bg-transparent border-0">
+                    <i class='bx bx-lock' style="color: white;"></i>
+                </span>
+                <input type="password" class="form-control" placeholder="Confirme a senha" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+            <a href="login.html" class="mx-lg-2 mx-md-0">Já tem uma conta?</a>
+            <a href="cadastrar.html">Não é administrador?</a>
+        </form>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

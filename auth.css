@@ -1,0 +1,88 @@
+/* Background and form container */
+body {
+    background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.login-container {
+    background: linear-gradient(135deg, #1aa826, #cce010);
+    padding: 40px 5% 40px 5%;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    width: 30%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+    .login-container {
+        width: 100%;
+        height: 100%;
+        padding: 45% 15% 0px 15%;
+        border-radius: 0; /* Responsive width for smaller screens */
+    }
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.login-container .form-control {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0;
+}
+.login-container .form-control:focus {
+    box-shadow: none;
+    border-bottom: 1px solid white;
+}
+.login-container .form-check-label {
+    color: white;
+}
+.login-container .btn-primary {
+    background-color: white;
+    color: #1aa826;
+    border: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+.login-container .btn-primary:hover {
+    background-color: #ddd;
+    color: brown;
+}
+.login-container a {
+    color: white;
+    font-size: 0.9em;
+    margin-top: 15px;
+    display: inline-block;
+}
+/* Centraliza o ícone */
+.icon-container {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-container i {
+    font-size: 30px;
+    color: brown;
+}
+ .login-container .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7); 
+}
+.input-group-text {
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
