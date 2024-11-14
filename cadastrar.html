@@ -22,40 +22,40 @@
         <h2>Cadastrar</h2>
         
         <!-- Form -->
-        <form>
+        <form action="cadastrar.jsp" method="post">
             <div class="mb-3 input-group">
                 <span class="input-group-text bg-transparent border-0">
                     <i class='bx bx-id-card' style="color: white;"></i>
                 </span>
-                <input type="number" class="form-control" placeholder="CPF" required>
+                <input type="number" class="form-control" name="cpf" placeholder="CPF" required>
             </div>
 
             <div class="mb-3 input-group">
                 <span class="input-group-text bg-transparent border-0">
                     <i class='bx bx-user' style="color: white;"></i>
                 </span>
-                <input type="text" class="form-control" placeholder="Nome Completo" required>
+                <input type="text" class="form-control" name="nome" placeholder="Nome Completo" required>
             </div>
             
             <div class="mb-3 input-group">
                 <span class="input-group-text bg-transparent border-0">
                     <i class='bx bx-envelope' style="color: white;"></i>
                 </span>
-                <input type="text" class="form-control" placeholder="Email" required>
+                <input type="text" class="form-control" name="email" placeholder="Email" required>
             </div>
             
             <div class="mb-3 input-group">
                 <span class="input-group-text bg-transparent border-0">
                     <i class='bx bx-lock' style="color: white;"></i>
                 </span>
-                <input type="password" class="form-control" placeholder="Senha" required>
+                <input type="password" class="form-control" name="senha" placeholder="Senha" required>
             </div>
 
             <div class="mb-3 input-group">
                 <span class="input-group-text bg-transparent border-0">
                     <i class='bx bx-lock' style="color: white;"></i>
                 </span>
-                <input type="password" class="form-control" placeholder="Confirme a senha" required>
+                <input type="password" class="form-control" name="confirmarSenha" placeholder="Confirme a senha" required>
             </div>
             
             <button type="submit" class="btn btn-primary w-100">Cadastrar</button>

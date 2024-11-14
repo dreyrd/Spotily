@@ -22,19 +22,19 @@
         <h2>Entrar</h2>
         
         <!-- Form -->
-        <form>
+        <form action="login.jsp" method="post">
             <div class="mb-3 input-group">
                 <span class="input-group-text bg-transparent border-0">
                     <i class='bx bx-id-card' style="color: white;"></i>
                 </span>
-                <input type="text" class="form-control" placeholder="CPF" required>
+                <input type="text" class="form-control" name="cpf" placeholder="CPF" required>
             </div>
             
             <div class="mb-3 input-group">
                 <span class="input-group-text bg-transparent border-0">
                     <i class='bx bx-lock' style="color: white;"></i>
                 </span>
-                <input type="password" class="form-control" placeholder="Senha" required>
+                <input type="password" class="form-control" name="senha" placeholder="Senha" required>
             </div>
             
             <div class="form-check d-flex justify-content-start">
@@ -44,7 +44,7 @@
             
             <button type="submit" class="btn btn-primary w-100">Entrar</button>
             <a href="#" class="mx-lg-2 mx-md-0">Esqueceu a senha?</a>
-            <a href="cadastrar.html">Não está cadastrado?</a>
+            <a href="cadastrar.html">Não tem um cadastro?</a>
         </form>
     </div>
     
