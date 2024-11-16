@@ -31,7 +31,6 @@
                     int ehAdm = rs.getInt("adm");
 
                     // Cria a sessão se o login for bem-sucedido
-                    HttpSession session = request.getSession();
                     session.setAttribute("usuarioAutenticado", true); // Marca como autenticado
                     session.setAttribute("usuarioCpf", cpf);  // Armazena o CPF do usuário
                     session.setAttribute("usuarioAdm", ehAdm);  // Armazena se é admin
