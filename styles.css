@@ -36,3 +36,65 @@ h1, h2, h3, h4, h5, h6 {
 .rounded-circle {
     max-width: fit-content;
 }
+
+/* Reservar.html */
+.container {
+    margin-top: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+.title-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title-section img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.info {
+    flex: 1;
+    margin-left: 20px;
+}
+.info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+.info p {
+    color: gray;
+    margin: 5px 0;
+}
+.calendar-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.calendar {
+    text-align: center;
+}
+.calendar h5 {
+    margin-bottom: 15px;
+}
+.btn-reservar {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-reservar button {
+    background-color: #007bff;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: none;
+}
+.btn-reservar button:hover {
+    background-color: #0056b3;
+}
+.btn-link {
+    text-decoration: none; 
+    color: white;
+}
