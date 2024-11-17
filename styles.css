@@ -1,0 +1,38 @@
+img {
+    border-radius: 5px;
+}
+
+.navbar span {
+    font-weight: bold;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: brown;
+}
+.bx-landscape {
+    color: brown;
+}
+.list-group-item {
+    border-color: #1aa826;
+}
+.gradient-background {
+    position: relative;
+    background: white; /* Background inside the border */
+    padding: 10px; /* Inner padding */
+    border-radius: 0.375rem;
+    z-index: 1;
+}
+
+.gradient-background::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #28a745, #ffc107); /* Gradient for the border */
+    z-index: -1; /* Place it behind */
+    border-radius: inherit; /* Match the parent border-radius */
+}
+.rounded-circle {
+    max-width: fit-content;
+}
