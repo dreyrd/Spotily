@@ -5,7 +5,7 @@ public class Database {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String SGBD = "mysql";
-    private static final String SERVER = "127.0.0.1";
+    private static final String SERVER = "localhost";
     private static final String PORTA = "3306";
     private static final String DATABASE = "spotily";
     private static final String USUARIO = "root";
@@ -26,7 +26,7 @@ public class Database {
         return DriverManager.getConnection(URL, USUARIO, SENHA);
     }
 
-
+    // Para uso exclusivo dos desenvolvedores
     public static CachedRowSet executarSelect(String queryStmt) throws SQLException {
         try (Connection con = conectar();
              Statement stmt = con.createStatement();
@@ -38,14 +38,8 @@ public class Database {
         }
     }
 
-    public static void executarQueryInterna(String queryStmt) throws SQLException {
-        try (Connection con = conectar();
-             Statement stmt = con.createStatement()) {
-            stmt.executeUpdate(queryStmt);
-        }
-    }
-
-    public static CachedRowSet executarSelect(String queryStmt, Object... params) throws SQLException {
+    // Evitar SQL Injection
+    public static CachedRowSet executarSelectExterno(String queryStmt, Object... params) throws SQLException {
         try (Connection con = conectar();
              PreparedStatement pstmt = con.prepareStatement(queryStmt)) {
              
@@ -61,6 +55,15 @@ public class Database {
         }
     }
 
+    // Para uso exclusivo dos desenvolvedores
+    public static void executarQuery(String queryStmt) throws SQLException {
+        try (Connection con = conectar();
+             Statement stmt = con.createStatement()) {
+            stmt.executeUpdate(queryStmt);
+        }
+    }
+
+    // Evitar SQL Injection
     public static void executarQueryExterna(String queryStmt, Object... params) throws SQLException {
         try (Connection con = conectar();
              PreparedStatement pstmt = con.prepareStatement(queryStmt)) {
@@ -73,5 +76,7 @@ public class Database {
     }
 }
 
-
-// usar = String sql = "UPDATE livros SET estoque = ? WHERE id = ?"; Database.executarQueryParametrizada(sql, 10, 1);
+// Como usar:
+// <%@ page import="Database" %>
+// String sql = "UPDATE livros SET estoque = ? WHERE id = ?"; 
+// Database.executarQueryExterna(sql, 10, 1);
