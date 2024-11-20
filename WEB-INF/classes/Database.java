@@ -3,12 +3,13 @@ import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 public class Database {
 
-    private static final String SGBD = "postgresql";
-    private static final String SERVER = "localhost";
-    private static final String PORTA = "5432";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String SGBD = "mysql";
+    private static final String SERVER = "127.0.0.1";
+    private static final String PORTA = "3306";
     private static final String DATABASE = "spotily";
-    private static final String USUARIO = "postgres";
-    private static final String SENHA = "123";
+    private static final String USUARIO = "root";
+    private static final String SENHA = "";
     private static final String URL = "jdbc:" + SGBD + "://" + SERVER + ":" + PORTA + "/" + DATABASE;
 
     private Database() {
@@ -17,6 +18,11 @@ public class Database {
 
 
     public static Connection conectar() throws SQLException {
+        try {
+            Class.forName(DRIVER);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return DriverManager.getConnection(URL, USUARIO, SENHA);
     }
 
