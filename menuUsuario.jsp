@@ -1,5 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,10 +37,11 @@
                         <p class="mb-0 text-muted">Capacidade</p>
                     </div>
                     <div class="col-12 col-md-3 text-md-end mt-2 mt-md-0">
-                        <a href="reservar.html" class="btn btn-outline-info btn-sm w-100 w-md-auto">Reservar</a>
+                        <a href="reservar.jsp?id=123" class="btn btn-outline-info btn-sm w-100 w-md-auto">Reservar</a>
                     </div>
                 </div>
             </div>
+            <%-- Fim do card --%>
         </div>
     </div>
     <!-- Bootstrap JS -->
