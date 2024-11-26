@@ -22,7 +22,7 @@
         <h2>Entrar</h2>
         
         <!-- Form -->
-        <form action="/back-end/login.jsp" method="post">
+        <form action="./back-end/login.jsp" method="post">
             <div class="mb-3 input-group">
                 <span class="input-group-text bg-transparent border-0">
                     <i class='bx bx-id-card' style="color: white;"></i>
@@ -48,6 +48,14 @@
         </form>
     </div>
     
+    <%
+        String erro = request.getParameter("erro");
+        if (erro != null) {
+            out.println("Mensagem de erro");
+        }
+    %>  
+
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

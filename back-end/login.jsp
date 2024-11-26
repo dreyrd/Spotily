@@ -39,10 +39,10 @@
                     if (ehAdm == 1) {
                         response.sendRedirect("admin.sla");  // Aqui você coloca a página do admin
                     } else {
-                        response.sendRedirect("home.html");  // Aqui você coloca a página para usuários normais
+                        response.sendRedirect("../entrar.jsp");  // Aqui você coloca a página para usuários normais
                     }
                 } else {
-                    out.println("CPF ou senha inválidos.");
+                    response.sendRedirect("../entrar.jsp?erro=1");
                 }
 
                 rs.close();

@@ -1,4 +1,4 @@
 <%
     session.invalidate();
-    response.sendRedirect("../entrar.html");
+    response.sendRedirect("../entrar.jsp");
 %>
