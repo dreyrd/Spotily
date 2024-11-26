@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% if(session.getAttribute("autenticado") == null) response.sendRedirect("entrar.html");%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
