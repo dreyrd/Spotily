@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<% if(session.getAttribute("usuarioAutenticado") == null) response.sendRedirect("entrar.jsp");%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,7 +27,7 @@
         <div class="d-flex align-items-center bg-light p-2 rounded-circle">
             <i class='bx bx-landscape bx-md'></i>
         </div>
-        <a href="#" class="btn btn-danger">Sair</a>
+        <a href="./back-end/sair.jsp" class="btn btn-danger">Sair</a>
     </nav>
     <div class="container">
         <div class="title-section">

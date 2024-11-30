@@ -25,7 +25,6 @@
                 PreparedStatement stmt = conexao.prepareStatement(query);
                 stmt.setString(1, cpf);
                 stmt.setString(2, senhaCriptografada);
-
                 ResultSet rs = stmt.executeQuery();
 
                 if (rs.next()) {
@@ -37,9 +36,9 @@
                     session.setAttribute("usuarioAdm", ehAdm);  // Armazena se é admin
 
                     if (ehAdm == 1) {
-                        response.sendRedirect("admin.sla");  // Aqui você coloca a página do admin
+                        response.sendRedirect("../menuAdm.html");  // Aqui você coloca a página do admin
                     } else {
-                        response.sendRedirect("../entrar.jsp");  // Aqui você coloca a página para usuários normais
+                        response.sendRedirect("../menuUsuario.jsp");  // Aqui você coloca a página para usuários normais
                     }
                 } else {
                     response.sendRedirect("../entrar.jsp?erro=1");
