@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="/banco/database.jsp" %>
+<%@ page import="java.sql.*, javax.sql.rowset.*" %>
+<% if(session.getAttribute("usuarioAutenticado") == null) response.sendRedirect("entrar.jsp");%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,22 +37,28 @@
     <div class="container my-4">
         <div class="list-group">
             <!-- Item de exemplo. No final do projeto, o back do site var precisar imprimir esses itens com out.println(). -->
-            <div class="list-group-item py-4">
-                <div class="row">
-                    <div class="col-3 col-md-1">
-                        <img src="placeholder.jpg" alt="Espaço" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
-                    </div>
-                    <div class="col-6 col-md-5">
-                        <h5 class="mb-0">Título</h5>
-                        <p class="mb-0 text-muted">Descrição do espaço</p>
-                    </div>
-                    <div class="col-6 col-md-6">
-                        <h5 class="mb-0">Capacidade</h5>
-                        <p class="mb-0 text-muted">Capacidade</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Fim do card -->
+                    <%
+        String query = "SELECT titulo, descricao, capacidade FROM espaco";
+        ResultSet rs = executarSelect(query);
+        while(rs.next())
+            out.println(
+                "<div class='list-group-item py-4'>" +
+                    "<div class='row'>" +
+                        "<div class='col-3 col-md-1'>" + 
+                            "<img src='placeholder.jpg' alt='Espaço' class='img-fluid' style='width: 100%; height: auto; object-fit: cover;'>" + 
+                        "</div>" + 
+                        "<div class='col-6 col-md-5'>" + 
+                            "<h5 class='mb-0'>" + rs.getString("titulo") + "</h5>" + 
+                            "<p class='mb-0 text-muted'>" + rs.getString("descricao") + "</p>" + 
+                        "</div>" + 
+                        "<div class='col-6 col-md-6'>" + 
+                            "<h5 class='mb-0'>Capacidade</h5>" + 
+                            "<p class='mb-0 text-muted'>" + rs.getString("capacidade") + "</p>" + 
+                        "</div>" + 
+                    "</div>" + 
+                "</div>"
+                );
+            %>
         </div>            
     </div>
 
