@@ -4,18 +4,14 @@
 <%@ page import="java.security.MessageDigest" %>
 <%@include file="conectar.jsp" %>
 <%
-    String cpf = request.getParameter("cpf").replaceAll("\\D", ""); // Remove pontos e traços
+    String cpf = request.getParameter("cpf")
     String nome = request.getParameter("nome");
     String email = request.getParameter("email");
     String senha = request.getParameter("senha");
     String confirmarSenha = request.getParameter("confirmarSenha");
 
-    // Checa se o cpf tem 11 digitos
-    if (cpf.length() != 11) {
-        out.println("<p style='color:red;'>CPF inválido! O CPF deve conter exatamente 11 dígitos.</p>");
-    }
-    else if (!senha.equals(confirmarSenha)) {
-        out.println("<p style='color:red;'>As senhas não coincidem. Tente novamente.</p>");
+    if (!senha.equals(confirmarSenha)) {
+        out.println("As senhas não coincidem. Tente novamente.");
     } 
     else {
         try {
