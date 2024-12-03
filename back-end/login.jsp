@@ -1,25 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="conectar.jsp" %>
+<%@ include file="conectar.jsp"%>
 <%@ page import="java.security.MessageDigest" %>
+<%@ page import="java.security.NoSuchAlgorithmException" %>
+<%@ page import="java.io.UnsupportedEncodingException" %>
 <%@ page import="javax.servlet.http.HttpSession" %>
 <%
     String cpf = request.getParameter("cpf");
     String senha = request.getParameter("senha");
+    String senhaCriptografada = criptografar(senha);
 
-    if (senha.equals("12345") && cpf.equals("1000000000")) {
+    if (senhaCriptografada.equals("5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5") && cpf.equals("100.000.000-00")) {
         // Para casos específicos, redireciona para a página de administrador
         response.sendRedirect("cadastrarAdm.html");
     } else {
         try {
-            // Criptografando a senha usando SHA-256
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(senha.getBytes("UTF-8"));
-            StringBuilder hexString = new StringBuilder();
-            for (byte b : hash) {
-                hexString.append(String.format("%02x", b));
-            }
-            String senhaCriptografada = hexString.toString();
-
             if (conexao != null) {
                 String query = "SELECT * FROM usuario WHERE cpf = ? AND senha = ?";
                 PreparedStatement stmt = conexao.prepareStatement(query);
@@ -59,4 +53,16 @@
     }
 %>
 
+<%!
+    // Criptografando a senha usando SHA-256
+    public final String criptografar(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(senha.getBytes("UTF-8"));
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : hash) {
+            hexString.append(String.format("%02x", b));
+        }
+        return hexString.toString();
+    }
+%>
 

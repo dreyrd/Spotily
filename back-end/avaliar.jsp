@@ -1,5 +1,4 @@
 <%@ include file="/banco/database.jsp" %>
-<%@ page import="java.sql.*" %>
 <% if(session.getAttribute("usuarioAutenticado") == null) response.sendRedirect("entrar.jsp");%>
 <%
     String id = request.getParameter("id");

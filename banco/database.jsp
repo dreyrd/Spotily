@@ -4,13 +4,14 @@
 <%!
     private static final String USUARIO = "root";
     private static final String SENHA = "";
-    private static final String URL = "jdbc:mysql://localhost:3306/spotily";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/spotily";
 
     public static Connection conectar() throws SQLException {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection(URL, USUARIO, SENHA);
-        } catch (SQLException e) {
-            throw new SQLException("Erro ao conectar ao banco de dados", e);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new SQLException("Connection failed", e);
         }
     }
 
