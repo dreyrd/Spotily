@@ -35,7 +35,7 @@
                 int linhasAfetadas = stmt.executeUpdate();
 
                 if (linhasAfetadas > 0) {
-                    response.sendRedirect("index.html");
+                    response.sendRedirect("menuUsuario.html");
                 } else {
                     out.println("Erro ao cadastrar. Tente novamente.");
                 }
