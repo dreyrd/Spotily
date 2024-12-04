@@ -30,15 +30,15 @@
               <p class="mt-2">Imagem Cadastrada</p>
             </div>
             <div class="col-md-9">
-              <form>
+              <form action="./back-end/cadastrarEspaco.jsp" method="post">
                 <div class="row mb-3">
                   <div class="col-md-8">
                     <label for="titulo" class="form-label">Título</label>
-                    <input type="text" class="form-control" id="titulo" placeholder="Título">
+                    <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo">
                   </div>
                   <div class="col-md-4">
                     <label for="capacidade" class="form-label">Capacidade</label>
-                    <select id="capacidade" class="form-select">
+                    <select id="capacidade" class="form-select" name="capacidade">
                       <option selected>Selecione...</option>
                       <option value="1-10">1-10</option>
                       <option value="11-20">11-20</option>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="descricao" class="form-label">Descrição</label>
-                  <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição"></textarea>
+                  <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição" name="descricao"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
               </form>

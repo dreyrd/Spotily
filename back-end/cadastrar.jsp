@@ -4,7 +4,7 @@
 <%@ page import="java.security.MessageDigest" %>
 <%@include file="conectar.jsp" %>
 <%
-    String cpf = request.getParameter("cpf")
+    String cpf = request.getParameter("cpf");
     String nome = request.getParameter("nome");
     String email = request.getParameter("email");
     String senha = request.getParameter("senha");
