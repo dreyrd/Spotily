@@ -11,7 +11,7 @@
 
     if (senhaCriptografada.equals("5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5") && cpf.equals("100.000.000-00")) {
         // Para casos específicos, redireciona para a página de administrador
-        response.sendRedirect("cadastrarAdm.html");
+        response.sendRedirect("../cadastrarAdm.html");
     } else {
         try {
             String query = "SELECT * FROM usuario WHERE cpf = ? AND senha = ?";
