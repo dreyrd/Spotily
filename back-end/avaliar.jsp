@@ -10,6 +10,4 @@
         executarQuery(query);
         response.sendRedirect("../avPendentes.jsp");
     }
-
-
 %>
