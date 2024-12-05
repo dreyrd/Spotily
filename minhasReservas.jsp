@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ include file="/banco/database.jsp" %>
+<% if(session.getAttribute("usuarioAutenticado") == null) response.sendRedirect("entrar.jsp");%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,29 +29,11 @@
         <h1 class="text-center mb-4">Lista de Reservas</h1>
         <div class="list-group">
             <% 
-                // Classe para simular uma reserva
-                class Reserva {
-                    int id;
-                    String dataInicio;
-                    String dataFim;
-                    String espaco;
-
-                    public Reserva(int id, String dataInicio, String dataFim, String espaco) {
-                        this.id = id;
-                        this.dataInicio = dataInicio;
-                        this.dataFim = dataFim;
-                        this.espaco = espaco;
-                    }
-                }
-
-                // Lista de dados simulados
-                List<Reserva> reservas = new ArrayList<>();
-                reservas.add(new Reserva(1, "2024-12-01", "2024-12-05", "Rio de Janeiro"));
-                reservas.add(new Reserva(2, "2024-12-10", "2024-12-15", "São Paulo"));
-                reservas.add(new Reserva(3, "2024-12-20", "2024-12-25", "Belo Horizonte"));
-
+                //Depois criar um query com inner join para mostrar o nome no lugar dos ids
+                String query = "SELECT * FROM reserva WHERE usuario LIKE " + session.getAttribute("usuarioCpf");
+                ResultSet rs = executarSelect(query);
                 // Exibir os dados na interface
-                for (Reserva reserva : reservas) {
+                while(rs.next()) {
             %>
                 <!-- Card de reserva -->
                 <div class="list-group-item py-4">
@@ -60,12 +42,12 @@
                             <img src="placeholder.jpg" alt="Imagem do Espaço" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
                         </div>
                         <div class="flex-grow-1 mx-2">
-                            <h5 class="mb-0">Espaço: <%= reserva.espaco %></h5>
-                            <p class="mb-0 text-muted">Início: <%= reserva.dataInicio %></p>
-                            <p class="mb-0 text-muted">Fim: <%= reserva.dataFim %></p>
+                            <h5 class="mb-0">Espaço: <%= rs.getString("usuario") %></h5>
+                            <p class="mb-0 text-muted">Início: <%= rs.getString("data_inicio") %></p>
+                            <p class="mb-0 text-muted">Fim: <%= rs.getString("data_fim") %></p>
                         </div>
                         <div class="text-md-end mt-2 mt-md-0">
-                            <a href="detalhesReserva.jsp?id=<%= reserva.id %>" class="btn btn-outline-danger w-100 w-md-auto">Cancelar</a>
+                            <a href="detalhesReserva.jsp?id=<%= rs.getString("id") %>" class="btn btn-outline-danger w-100 w-md-auto">Cancelar</a>
                         </div>
                     </div>
                 </div>

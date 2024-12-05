@@ -2,7 +2,8 @@
 <%@ page import="javax.servlet.*" %>
 <%@ page import="javax.servlet.http.*" %>
 <%@ page import="java.security.MessageDigest" %>
-<%@include file="../banco/database.jsp" %>
+<%@include file="/banco/database.jsp" %>
+<% if(session.getAttribute("usuarioAutenticado") == null) response.sendRedirect("entrar.jsp");%>
 <%
     String cpf = request.getParameter("cpf");
     String nome = request.getParameter("nome");
