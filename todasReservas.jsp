@@ -35,20 +35,23 @@
                     String dataInicio;
                     String dataFim;
                     String espaco;
+                    String usuario;
 
-                    public Reserva(int id, String dataInicio, String dataFim, String espaco) {
+                    public Reserva(int id, String dataInicio, String dataFim, String espaco, String cpf) {
                         this.id = id;
                         this.dataInicio = dataInicio;
                         this.dataFim = dataFim;
                         this.espaco = espaco;
+                        // To usando um cpf aqui, mas o ideal vai ser puxar o nome do usuario usando o cpf dele
+                        usuario = cpf;
                     }
                 }
 
                 // Lista de dados simulados
                 List<Reserva> reservas = new ArrayList<>();
-                reservas.add(new Reserva(1, "2024-12-01", "2024-12-05", "Rio de Janeiro"));
-                reservas.add(new Reserva(2, "2024-12-10", "2024-12-15", "São Paulo"));
-                reservas.add(new Reserva(3, "2024-12-20", "2024-12-25", "Belo Horizonte"));
+                reservas.add(new Reserva(1, "2024-12-01", "2024-12-05", "Rio de Janeiro", "500.111.777-99"));
+                reservas.add(new Reserva(2, "2024-12-10", "2024-12-15", "São Paulo", "500.111.777-99"));
+                reservas.add(new Reserva(3, "2024-12-20", "2024-12-25", "Belo Horizonte", "500.111.777-99"));
 
                 // Exibir os dados na interface
                 for (Reserva reserva : reservas) {
@@ -63,9 +66,10 @@
                             <h5 class="mb-0">Espaço: <%= reserva.espaco %></h5>
                             <p class="mb-0 text-muted">Início: <%= reserva.dataInicio %></p>
                             <p class="mb-0 text-muted">Fim: <%= reserva.dataFim %></p>
+                            <p class="mb-0 text-muted">Usuário: <%= reserva.usuario %></p>
                         </div>
                         <div class="text-md-end mt-2 mt-md-0">
-                            <a href="detalhesReserva.jsp?id=<%= reserva.id %>" class="btn btn-outline-danger w-100 w-md-auto">Cancelar</a>
+                            <a href="detalhesReserva.jsp?id=<%= reserva.id %>" class="btn btn-outline-danger btn-sm w-100 w-md-auto">Cancelar</a>
                         </div>
                     </div>
                 </div>
@@ -75,7 +79,5 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
