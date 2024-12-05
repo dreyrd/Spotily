@@ -29,8 +29,7 @@
         <h1 class="text-center mb-4">Lista de Reservas</h1>
         <div class="list-group">
             <% 
-                //Depois criar um query com inner join para mostrar o nome no lugar dos ids
-                String query = "SELECT * FROM reserva WHERE usuario LIKE " + session.getAttribute("usuarioCpf");
+                String query = "SELECT reserva.id, titulo, data_inicio, data_fim FROM reserva INNER JOIN espaco ON espaco = espaco.id WHERE usuario LIKE " + session.getAttribute("usuarioCpf");
                 ResultSet rs = executarSelect(query);
                 // Exibir os dados na interface
                 while(rs.next()) {
@@ -42,7 +41,7 @@
                             <img src="placeholder.jpg" alt="Imagem do Espaço" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
                         </div>
                         <div class="flex-grow-1 mx-2">
-                            <h5 class="mb-0">Espaço: <%= rs.getString("usuario") %></h5>
+                            <h5 class="mb-0">Espaço: <%= rs.getString("titulo") %></h5>
                             <p class="mb-0 text-muted">Início: <%= rs.getString("data_inicio") %></p>
                             <p class="mb-0 text-muted">Fim: <%= rs.getString("data_fim") %></p>
                         </div>
