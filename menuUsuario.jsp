@@ -17,11 +17,18 @@
     <link href="styles/styles.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-light py-2 gradient-background">
-        <div class="d-flex align-items-center bg-light p-2 rounded-circle">
-            <i class='bx bx-landscape bx-md'></i>
+    <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between mb-4 border-bottom gradient-background">
+        <div class="col-md-3">
+            <div class="d-flex bg-light p-2 rounded-circle">
+                <i class='bx bx-landscape bx-md'></i>
+            </div>
         </div>
-        <a href="./back-end/sair.jsp" class="btn btn-danger">Sair</a>
+        <div class="nav col-md-auto justify-content-center">
+            <li><a href="minhasReservas.jsp" class="nav-link" style="color: white;">Minhas Reservas</a></li>
+        </div>
+        <div class="col-md-3 text-end">
+            <a href="./back-end/sair.jsp" class="btn btn-danger">Sair</a>
+        </div>
     </nav>
     
     <div class="container my-4">

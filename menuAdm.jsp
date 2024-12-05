@@ -24,9 +24,9 @@
             </div>
         </div>
         <div class="nav col-md-auto justify-content-center">
-            <li><a href="#" class="nav-link link-dark">Espaços</a></li>
-            <li><a href="avPendentes.html" class="nav-link link-dark">Avaliações Pendentes</a></li>
-            <li><a href="cadastrarEspaco.html" class="nav-link link-dark">Cadastrar Espaço</a></li>
+            <li><a href="#" class="nav-link" style="color: white;">Espaços</a></li>
+            <li><a href="avPendentes.html" class="nav-link" style="color: white;">Avaliações Pendentes</a></li>
+            <li><a href="cadastrarEspaco.html" class="nav-link" style="color: white;">Cadastrar Espaço</a></li>
         </div>
         <div class="col-md-3 text-end">
             <a href="./back-end/sair.jsp" class="btn btn-danger">Sair</a>
