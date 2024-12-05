@@ -2,7 +2,7 @@
 <%@ page import="javax.servlet.*" %>
 <%@ page import="javax.servlet.http.*" %>
 <%@ page import="java.security.MessageDigest" %>
-<%@include file="conectar.jsp" %>
+<%@include file="../banco/database.jsp" %>
 <%
     String cpf = request.getParameter("cpf");
     String nome = request.getParameter("nome");
@@ -12,8 +12,7 @@
 
     if (!senha.equals(confirmarSenha)) {
         out.println("As senhas não coincidem. Tente novamente.");
-    } 
-    else {
+    } else {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(senha.getBytes("UTF-8"));
@@ -23,27 +22,10 @@
             }
             String senhaCriptografada = hexString.toString();
 
-            if (conexao != null) {
-                String query = "INSERT INTO usuario (cpf, nome, email, senha, black_list, adm) VALUES (?, ?, ?, ?, 0, 0)";
+            String query = "INSERT INTO usuario (cpf, nome, email, senha, black_list, adm) VALUES (?, ?, ?, ?, 0, 0)";
+            executarQueryExterno(query, cpf, nome, email, senhaCriptografada);
 
-                PreparedStatement stmt = conexao.prepareStatement(query);
-                stmt.setString(1, cpf);
-                stmt.setString(2, nome);
-                stmt.setString(3, email);
-                stmt.setString(4, senhaCriptografada); 
-
-                int linhasAfetadas = stmt.executeUpdate();
-
-                if (linhasAfetadas > 0) {
-                    response.sendRedirect("menuUsuario.html");
-                } else {
-                    out.println("Erro ao cadastrar. Tente novamente.");
-                }
-
-                stmt.close();
-            } else {
-                out.println("Falha na conexão com o banco de dados.");
-            }
+            response.sendRedirect("../entrar.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
             out.println("Erro ao inserir no banco de dados: " + e.getMessage());

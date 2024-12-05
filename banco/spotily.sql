@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03/12/2024 às 18:33
+-- Tempo de geração: 04/12/2024 às 19:13
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -45,7 +45,7 @@ CREATE TABLE `espaco` (
   `id` int(11) NOT NULL,
   `titulo` varchar(45) DEFAULT NULL,
   `descricao` text DEFAULT NULL,
-  `capacidade` int(11) DEFAULT NULL,
+  `capacidade` varchar(5) DEFAULT NULL,
   `ocupado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
