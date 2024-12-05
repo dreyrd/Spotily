@@ -22,7 +22,7 @@
         <div class="d-flex align-items-center bg-light p-2 rounded-circle">
             <i class='bx bx-landscape bx-md'></i>
         </div>
-        <a href="#" class="btn btn-danger">Sair</a>
+        <a href="./back-end/sair.jsp" class="btn btn-danger">Sair</a>
     </nav>
 
     <div class="container my-4">
