@@ -31,7 +31,7 @@
         <div class="list-group">
           <%
             String id = null;
-            String query = "SELECT avaliacao.id as id, nome, titulo FROM avaliacao INNER JOIN usuario ON cpf = usuario_avaliado INNER JOIN espaco ON espaco.id = espaco WHERE nota IS NULL";
+            String query = "SELECT avaliacao.id as id, nome, titulo FROM avaliacao INNER JOIN usuario ON cpf = usuario INNER JOIN espaco ON espaco.id = espaco WHERE nota IS NULL";
             ResultSet rs = executarSelect(query);
             while(rs.next()){
               id = rs.getString("id");
