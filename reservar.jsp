@@ -15,15 +15,8 @@
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <!-- CSS -->
      <link rel="stylesheet" href="styles/styles.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-        
-    </style>
 </head>
-<body style="min-height: 100svh;">
+<body style="min-height: 100svh; background-color: #f8f9fa; font-family: Arial, sans-serif;">
     <nav class="navbar navbar-light py-2 gradient-background">
         <div class="d-flex align-items-center bg-light p-2 rounded-circle">
             <i class='bx bx-landscape bx-md'></i>

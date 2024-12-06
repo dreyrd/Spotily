@@ -39,7 +39,6 @@
         %>
             <div class='list-group-item py-4'> 
                 <div class='row'> 
-                    <%= session.getAttribute("usuarioCpf") %>
                     <div class='col-3 col-md-1'>  
                         <img src='placeholder.jpg' alt='Espaço' class='img-fluid' style='width: 100%; height: auto; object-fit: cover;'>  
                     </div>  
