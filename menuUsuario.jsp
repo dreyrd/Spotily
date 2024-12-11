@@ -32,31 +32,39 @@
     </nav>
     <div class="container my-4">
         <div class="list-group">
-        <%
-            String query = "SELECT id, titulo, descricao, capacidade FROM espaco";
-            ResultSet rs = executarSelect(query);
-            while(rs.next()) {
-        %>
-            <div class='list-group-item py-4'> 
-                <div class='row'> 
-                    <div class='col-3 col-md-1'>  
-                        <img src='placeholder.jpg' alt='Espaço' class='img-fluid' style='width: 100%; height: auto; object-fit: cover;'>  
-                    </div>  
-                    <div class='col-6 col-md-5'>  
-                        <h5 class='mb-0'> <%= rs.getString("titulo") %> </h5>  
-                        <p class='mb-0 text-muted'> <%= rs.getString("descricao") %> </p>  
-                    </div>  
-                    <div class='col-6 col-md-3'>  
-                        <h5 class='mb-0'>Capacidade</h5>  
-                        <p class='mb-0 text-muted'> <%= rs.getString("capacidade")  %> </p>  
-                    </div>  
-                    <div class='col-12 col-md-3 text-md-end mt-2 mt-md-0'>  
-                        <a href='reservar.jsp?id=<%= rs.getInt("id") %>' class='btn btn-outline-info btn-sm w-100 w-md-auto'>Reservar</a> 
-                    </div> 
-                </div> 
-            </div>
-            <% 
-                } 
+            <%
+                String query = "SELECT e.id, e.titulo, e.descricao, e.capacidade, f.foto " +
+                            "FROM espaco e " +
+                            "LEFT JOIN foto_espaco f ON e.id = f.id";
+                ResultSet rs = executarSelect(query);
+            
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String titulo = rs.getString("titulo");
+                    String descricao = rs.getString("descricao");
+                    String capacidade = rs.getString("capacidade");
+                    String imagePath = rs.getString("foto");
+            %>
+                    <div class="list-group-item py-4">
+                        <div class="row">
+                            <div class="col-3 col-md-1">
+                                <img src="<%= imagePath %>" alt="Espaço" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
+                            </div>
+                            <div class="col-6 col-md-5">
+                                <h5 class="mb-0"><%= titulo %></h5>
+                                <p class="mb-0 text-muted"><%= descricao %></p>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <h5 class="mb-0">Capacidade</h5>
+                                <p class="mb-0 text-muted"><%= capacidade %></p>
+                            </div>
+                            <div class="col-12 col-md-3 text-md-end mt-2 mt-md-0">
+                                <a href="reservar.jsp?id=<%= id %>" class="btn btn-outline-info btn-sm w-100 w-md-auto">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+            <%
+                }
             %>
         </div>
     </div>

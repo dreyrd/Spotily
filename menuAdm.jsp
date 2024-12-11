@@ -25,7 +25,7 @@
         </div>
         <div class="nav col-md-auto justify-content-center">
             <li><a href="#" class="nav-link" style="color: white;">Espaços</a></li>
-            <li><a href="avPendentes.html" class="nav-link" style="color: white;">Avaliações Pendentes</a></li>
+            <li><a href="avPendentes.jsp" class="nav-link" style="color: white;">Avaliações Pendentes</a></li>
             <li><a href="cadastrarEspaco.html" class="nav-link" style="color: white;">Cadastrar Espaço</a></li>
             <li><a href="" class="nav-link" style="color: white;">Cadastrar Espaço</a></li>
         </div>
@@ -36,28 +36,37 @@
     
     <div class="container my-4">
         <div class="list-group">
-        <%
-            String query = "SELECT titulo, descricao, capacidade FROM espaco";
-            ResultSet rs = executarSelect(query);
-            while(rs.next())
-                out.println(
-                    "<div class='list-group-item py-4'>" +
-                        "<div class='row'>" +
-                            "<div class='col-3 col-md-1'>" + 
-                                "<img src='placeholder.jpg' alt='Espaço' class='img-fluid' style='width: 100%; height: auto; object-fit: cover;'>" + 
-                            "</div>" + 
-                            "<div class='col-6 col-md-5'>" + 
-                                "<h5 class='mb-0'>" + rs.getString("titulo") + "</h5>" + 
-                                "<p class='mb-0 text-muted'>" + rs.getString("descricao") + "</p>" + 
-                            "</div>" + 
-                            "<div class='col-6 col-md-6'>" + 
-                                "<h5 class='mb-0'>Capacidade</h5>" + 
-                                "<p class='mb-0 text-muted'>" + rs.getString("capacidade") + "</p>" + 
-                            "</div>" + 
-                        "</div>" + 
-                    "</div>"
-                    );
-        %>
+            <%
+                String query = "SELECT e.id, e.titulo, e.descricao, e.capacidade, f.foto " +
+                            "FROM espaco e " +
+                            "LEFT JOIN foto_espaco f ON e.id = f.id";
+                ResultSet rs = executarSelect(query);
+            
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String titulo = rs.getString("titulo");
+                    String descricao = rs.getString("descricao");
+                    String capacidade = rs.getString("capacidade");
+                    String imagePath = rs.getString("foto");
+            %>
+                    <div class="list-group-item py-4">
+                        <div class="row">
+                            <div class="col-3 col-md-1">
+                                <img src="<%= imagePath %>" alt="Espaço" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
+                            </div>
+                            <div class="col-6 col-md-5">
+                                <h5 class="mb-0"><%= titulo %></h5>
+                                <p class="mb-0 text-muted"><%= descricao %></p>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <h5 class="mb-0">Capacidade</h5>
+                                <p class="mb-0 text-muted"><%= capacidade %></p>
+                            </div>
+                        </div>
+                    </div>
+            <%
+                }
+            %>
         </div>            
     </div>
 
