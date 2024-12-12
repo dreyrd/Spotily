@@ -23,51 +23,64 @@
         </div>
         <a href="./back-end/sair.jsp" class="btn btn-danger">Sair</a>
     </nav>
-    <div class="container">
+    <form class="container" action="./back-end/reservar.jsp" method="post">
         <div class="title-section">
             <img src="https://via.placeholder.com/150" alt="Espaço">
             <div class="info">
-                <select name="espacos" id="">
+                
                     <%
-                        String query = "SELECT * FROM espaco";
-                        ResultSet rs = executarSelect(query);
-                        while (rs.next()) {
-                    
-                    %>
-                        <option value="a" > <% rs.getStrin("titulo"); %> </option>
-                    <%
+                        String id = request.getParameter("id");
+                        String titulo = "";
+                        String capacidade = "";
+                        String descricao = "";
+                        ResultSet rs = null;
+                        try {
+                            String query = "SELECT * FROM espaco where id = " + id + " limit 1";
+                            rs = executarSelect(query);
+
+                            if (rs != null && rs.next()) {
+                                titulo = rs.getString("titulo");
+                                capacidade = rs.getString("capacidade");
+                                descricao = rs.getString("descricao");
+                                
+                            }
+                        } catch (Exception e) {
+                            out.println("Erro ao buscar espaço: " + e.getMessage());
+                        } finally {
+                            if (rs != null) {
+                                try {
+                                    rs.close();
+                                    session.setAttribute("idEspaco", id);
+                                } catch (SQLException e) {
+                                    out.println("Erro ao fechar ResultSet: " + e.getMessage());
+                                }
+                            }
                         }
-                        %>
-                    
-                </select>
-                <p>Capacidade</p>
-                <p>Descrição do espaço</p>
+                    %>
+                <h2><%= titulo %></h2>
+                <p id="capacidade">Capacidade: <%= capacidade %></p>
+                <p id="descricao">Descrição do espaço: <%= descricao %></p>
             </div>
         </div>
         <div class="calendar-container">
             <div class="calendar">
                 <h5>Entrada</h5>
-                <input type="date" class="form-control">
+                <input type="date" class="form-control" name="dataEntrada">
             </div>
             <div class="calendar">
                 <h5>Saída</h5>
-                <input type="date" class="form-control">
+                <input type="date" class="form-control" name="dataSaida">
             </div>
         </div>
         <div class="d-flex mt-3">
             <div class="col-md-6 text-start">
-                <a href="./menuUsuario.html" class="btn btn-danger">Cancelar</a>
+                <a href="./menuUsuario.jsp" class="btn btn-danger">Cancelar</a>
             </div>
             <div class="col-md-6 text-end">
-                <a href="#" class="btn btn-success">Reservar</a>
+                <input type="submit" value="Reservar" href="#" class="btn btn-success">
             </div>
         </div>
-    </div>
-    <%
-        String id = request.getParameter("id");
-        if (id != null) {
-            out.println("ID recebido: " + id);
-        }
-    %>
+    </form>
+
 </body>
 </html>
