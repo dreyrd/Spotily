@@ -24,8 +24,6 @@
                 executarQueryExterno(query, dataEntrada, dataSaida, cpf, id);
                 response.sendRedirect("../reservar.jsp");
             }
-        } else {
-            out.println("Nenhuma reserva conflitante encontrada.");
         }
     }
     catch(Exception e){

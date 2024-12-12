@@ -98,3 +98,23 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none; 
     color: white;
 }
+
+.image-container {
+    display: flex;
+    gap: 20px;
+}
+.image-option {
+    text-align: center;
+}
+.image-option img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.image-option input[type="radio"] {
+    display: none; /* Esconde completamente o input radio */
+}
+.image-option input[type="radio"]:checked + img {
+    border: 2px solid blue;
+}
