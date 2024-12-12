@@ -32,7 +32,7 @@
             <%
                 String query = "SELECT e.id, e.titulo, e.descricao, e.capacidade, f.foto " +
                             "FROM espaco e " +
-                            "LEFT JOIN foto_espaco f ON e.id = f.id";
+                            "LEFT JOIN foto_espaco f ON e.id = f.espaco";
                 ResultSet rs = executarSelect(query);
             
                 while (rs.next()) {
@@ -40,7 +40,7 @@
                     String titulo = rs.getString("titulo");
                     String descricao = rs.getString("descricao");
                     String capacidade = rs.getString("capacidade");
-                    String imagePath = rs.getString("foto");
+                    String imagePath = "./img/" + rs.getString("foto");
             %>
                     <div class="list-group-item py-4">
                         <div class="row">
