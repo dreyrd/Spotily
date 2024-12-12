@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="/banco/database.jsp" %>
+<%@ include file="./banco/database.jsp" %>
 <% if(session.getAttribute("usuarioAutenticado") == null) response.sendRedirect("entrar.jsp");%>
 <!DOCTYPE html>
 <html lang="pt-br">

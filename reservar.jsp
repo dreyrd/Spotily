@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="/banco/database.jsp" %>
+<%@ include file="./banco/database.jsp" %>
 <% if(session.getAttribute("usuarioAutenticado") == null) response.sendRedirect("entrar.jsp");%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,7 +27,19 @@
         <div class="title-section">
             <img src="https://via.placeholder.com/150" alt="Espaço">
             <div class="info">
-                <h2>Título</h2>
+                <select name="espacos" id="">
+                    <%
+                        String query = "SELECT * FROM espaco";
+                        ResultSet rs = executarSelect(query);
+                        while (rs.next()) {
+                    
+                    %>
+                        <option value="a" > <% rs.getStrin("titulo"); %> </option>
+                    <%
+                        }
+                        %>
+                    
+                </select>
                 <p>Capacidade</p>
                 <p>Descrição do espaço</p>
             </div>

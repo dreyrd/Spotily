@@ -1,4 +1,4 @@
-<%@ include file="/banco/database.jsp" %>
+<%@ include file="../banco/database.jsp" %>
 <% if(session.getAttribute("usuarioAutenticado") == null) response.sendRedirect("entrar.jsp");%>
 <%
     String id = request.getParameter("id");
