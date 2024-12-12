@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="nav col-md-auto justify-content-center">
-            <li><a href="#" class="nav-link" style="color: white;">Espaços</a></li>
+            <li><a href="menuAdm.jsp" class="nav-link" style="color: white;">Espaços</a></li>
             <li><a href="avPendentes.jsp" class="nav-link" style="color: white;">Avaliações Pendentes</a></li>
             <li><a href="cadastrarEspaco.html" class="nav-link" style="color: white;">Cadastrar Espaço</a></li>
         </div>

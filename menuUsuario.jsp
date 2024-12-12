@@ -23,9 +23,6 @@
                 <i class='bx bx-landscape bx-md'></i>
             </div>
         </div>
-        <div class="nav col-md-auto justify-content-center">
-            <li><a href="minhasReservas.jsp" class="nav-link" style="color: white;">Minhas Reservas</a></li>
-        </div>
         <div class="col-md-3 text-end">
             <a href="./back-end/sair.jsp" class="btn btn-danger">Sair</a>
         </div>
